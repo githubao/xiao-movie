@@ -9,8 +9,26 @@
 """
 
 from collections import defaultdict
+import random
+from datetime import datetime
+import os
 
 filename = 'C:\\Users\\xiaobao\\Downloads\\secret.txt'
+torrent_path = 'C:\\Users\\xiaobao\\Downloads\\torrent'
+
+
+def compare():
+    with open(filename, 'r', encoding='utf-8') as f:
+        aset = set(line.strip() for line in f)
+
+    bset = set(s.replace(".torrent", "") for s in os.listdir(torrent_path))
+
+    print(len(aset))
+    print(len(bset))
+
+    print('\n'.join(bset - aset))
+    print('\n')
+    print('\n'.join(aset - bset))
 
 
 def process_secret():
@@ -50,8 +68,20 @@ def process_secret():
     # print('\n'.join(secret))
 
 
+def shuf():
+    with open(filename, 'r', encoding='utf-8') as f:
+        datas = [line.strip() for line in f]
+
+        random.seed(datetime.now())
+        luckies = random.sample(datas, 3)
+
+        print('\n'.join(luckies))
+
+
 def main():
-    process_secret()
+    # process_secret()
+    # shuf()
+    compare()
 
 
 if __name__ == '__main__':
