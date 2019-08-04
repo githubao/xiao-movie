@@ -12,6 +12,7 @@ from collections import defaultdict
 import random
 from datetime import datetime
 import os
+import math
 
 filename = 'C:\\Users\\xiaobao\\Downloads\\secret.txt'
 torrent_path = 'C:\\Users\\xiaobao\\Downloads\\torrent'
@@ -78,10 +79,19 @@ def shuf():
         print('\n'.join(luckies))
 
 
+def calc():
+    # a = 59 * 5 + 1250
+    a = 59 * 5 + 1000
+    b = 1000
+    r = math.pow(a / b, 1 / 5) - 1
+    print('{:.12f}%'.format(r * 100))
+
+
 def main():
     # process_secret()
     # shuf()
-    compare()
+    # compare()
+    calc()
 
 
 if __name__ == '__main__':
