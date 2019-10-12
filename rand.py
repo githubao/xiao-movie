@@ -13,14 +13,16 @@ import os
 
 filepath = 'e:/small-movies/torrents/'
 
+
 def rand():
     lines = os.listdir(filepath)
 
     print('file count: {}'.format(len(lines)))
 
-    results = random.sample(lines,3)
+    results = random.sample(lines, 3)
 
     print("\n".join(results))
-    
+
+
 if __name__ == "__main__":
     rand()
