@@ -41,6 +41,7 @@ def count_sum():
 
     title = ''
     subtitle = ''
+    movies = []
 
     with open('README.md', 'r', encoding='utf-8') as f:
         for line in f:
@@ -63,6 +64,12 @@ def count_sum():
 
                 dic[key] += 1
 
+                movie = line.strip('1. ')
+                if movie in movies:
+                    print('dup line: {}'.format(movie))
+                else:
+                    movies.append(movie)
+
     count = sum(dic.values())
     print_sep()
     print('total movies: {}'.format(count))
@@ -82,6 +89,10 @@ def count_sum():
     sorted_dic = sorted(dic.items(), key=lambda x: x[1], reverse=True)
     for k, v in sorted_dic:
         print('{} -> {}'.format(k, v))
+
+    print_sep()
+    print("movies len: {}".format(len(movies)))
+    print("movies: {}".format(movies))
 
     print_sep()
 
